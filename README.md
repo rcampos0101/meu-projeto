@@ -1,21 +1,19 @@
 # Dashboard Financeiro - Composição de Despesas
 
-Este é um dashboard financeiro interativo construído com Streamlit. Ele permite:
+Dashboard interativo em Streamlit para análise de contas contábeis.
 
-- Visualização de dados contábeis por mês
+## Recursos:
 - Gráficos de linha, barra e pizza
-- Filtros interativos por conta e por mês
-- Exportação de dados em CSV
+- Filtros interativos
+- Exportação de CSV
 - Compartilhamento via WhatsApp
 
-## Como executar
+## Execução local:
+```bash
+pip install -r requirements.txt
+streamlit run dashboard.py
+```
 
-1. Clone o repositório
-2. Instale as dependências com `pip install -r requirements.txt`
-3. Execute o app com `streamlit run dashboard.py`
-
-## Publicação
-
-O app está pronto para ser publicado no [Streamlit Cloud](https://streamlit.io/cloud).
+## Publicação: pronto para Streamlit Cloud
 
 Desenvolvido por Ricardo.
