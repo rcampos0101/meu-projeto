@@ -76,13 +76,18 @@ ax2.set_ylabel("Total (R$)")
 ax2.tick_params(axis='x', rotation=45)
 st.pyplot(fig2)
 
-# Gráfico de Pizza
+# Gráfico de Pizza com verificação de valores negativos ou nulos
 st.markdown(f"### Composição Percentual para o mês de {mes_selecionado}")
 df_pizza = df_filtrado[["Conta Contábil", mes_selecionado]].dropna()
-fig3, ax3 = plt.subplots()
-ax3.pie(df_pizza[mes_selecionado], labels=df_pizza["Conta Contábil"], autopct='%1.1f%%', startangle=90)
-ax3.axis('equal')
-st.pyplot(fig3)
+df_pizza = df_pizza[df_pizza[mes_selecionado] > 0]
+
+if not df_pizza.empty:
+    fig3, ax3 = plt.subplots()
+    ax3.pie(df_pizza[mes_selecionado], labels=df_pizza["Conta Contábil"], autopct='%1.1f%%', startangle=90)
+    ax3.axis('equal')
+    st.pyplot(fig3)
+else:
+    st.warning("Não há dados positivos disponíveis para este mês no gráfico de pizza.")
 
 # Exportar CSV
 csv = df_filtrado.to_csv(index=False).encode('utf-8')
